@@ -1,10 +1,11 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("<h1>Home Page</h1>")
+    return render(request,  'website/index.html')
 
 def about(request):
-    return HttpResponse("I'm Pooyan!")
+    return render(request, 'website/about.html')
 
 def contact(request):
-    return HttpResponse("contact via pooyan@gmail.com")
+    return render(request, 'website/contact.html')
