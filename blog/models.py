@@ -45,3 +45,6 @@ class Post(models.Model):
             return pp[0]
         else:
             return False
+
+    # def snippets(self):
+    #     return self.content[:100] + " ..."
