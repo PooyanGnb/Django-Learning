@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from next_prev import next_in_order, prev_in_order
 # Create your models here.
 
 class Category(models.Model):
@@ -32,19 +32,27 @@ class Post(models.Model):
         self.counted_views += 1
         self.save()
 
+
     def next_post(self):
-        np =  Post.objects.filter(id__gt = self.id)
-        if np:
-            return np.last()
-        else:
-            return False
+        return prev_in_order(self)
 
     def previous_post(self):
-        pp =  Post.objects.filter(id__lt = self.id)
-        if pp:
-            return pp[0]
-        else:
-            return False
+        return next_in_order(self)
+
+
+    # def next_post(self):
+    #     np =  Post.objects.filter(id__gt = self.id)
+    #     if np:
+    #         return np.last()
+    #     else:
+    #         return False
+
+    # def previous_post(self):
+    #     pp =  Post.objects.filter(id__lt = self.id)
+    #     if pp:
+    #         return pp[0]
+    #     else:
+    #         return False
 
     # def snippets(self):
     #     return self.content[:100] + " ..."
