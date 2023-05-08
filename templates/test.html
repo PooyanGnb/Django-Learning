@@ -1,3 +1,4 @@
+{% load static %}
 {% load blog_tags %}
 
 <!DOCTYPE html>
@@ -9,7 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Testing Page</h1>
-    <p>test: </p>
-    {% totalposts %}
+    {% flt posts as pp %}
+    {% for post in pp %}
+    {{ post.title }}
+    {{ post.content|truncatewords:15 }}
+    {% endfor %}
 </html>

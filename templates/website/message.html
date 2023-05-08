@@ -76,6 +76,9 @@
       {% if field.errors %}
         {% for error in field.errors %}
           <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+           </button>
         {% endfor %}
       {% endif %}
     {% endfor %}

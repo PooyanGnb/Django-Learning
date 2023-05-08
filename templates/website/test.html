@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test form</title>
 </head>
-<body>
-    <form action="{% url 'website:test' %}" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">submit</button>
-    </form>
+    {% for post in post.filter(title='test title') %}
+    <title>{{ post.title }}</title> qwe
+    {% endfor %}
 </body>
 </html>
